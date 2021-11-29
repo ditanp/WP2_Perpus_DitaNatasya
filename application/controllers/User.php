@@ -7,6 +7,9 @@ class User extends CI_Controller
   {
     parent::__construct();
     cek_login();
+    // $this->pustaka_booking->application->helpers->pustaka_helper->cek_login();
+    // $data['main_menu'] = $this->pustaka_helper->cek_login();
+    // $this->load->view('index.php');
   }
 
   public function index()

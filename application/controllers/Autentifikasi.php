@@ -4,7 +4,7 @@ class Autentifikasi extends CI_Controller
 {
     public function index()
     {
-     //jika statusnya sudah login, maka tidak bisa mengakses halaman login alias dikembalikan ke tampilan user
+    //  jika statusnya sudah login, maka tidak bisa mengakses halaman login alias dikembalikan ke tampilan user
         if($this->session->userdata('email')){
             redirect('user');
         }
@@ -58,6 +58,15 @@ class Autentifikasi extends CI_Controller
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email tidak terdaftar!!</div>');
         redirect('autentifikasi');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Anda telah logout!!</div>');
+        redirect('autentifikasi');
     }
 
     public function blok()
